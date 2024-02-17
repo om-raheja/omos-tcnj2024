@@ -1,14 +1,20 @@
-mov ah, 0x0e
-mov al, 'H'
-int 0x10
-mov al, 'E'
-int 0x10
-mov al, 'Y'
-int 0x10
+; only support mb1
+align	equ 1 << 0
+info	equ 1 << 1
+flags	equ align | info
+magic	equ 0x1BADB002
+chksum	equ - (magic + flags)
 
+section .multiboot
+	align	4
+			dd magic
+			dd flags
+			dd chksum
 
-cli
-hlt
+global _start
+extern sysinit
 
-times 510 - ($ - $$) db 0
-dw 0xaa55
+_start:
+	cli
+	call sysinit
+	hlt
