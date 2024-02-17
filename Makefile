@@ -1,5 +1,7 @@
-include sys/drv/vga/Makefile
+include sys/Makefile
 CC=cc
+SRCS=$(wildcard sys/*.o) $(wildcard sys/*/*.o) $(wildcard sys/*/*/*.o)
 
-all: vga.o
-	$(CC) sys/drv/vga/vga.o -o boot.img
+all: vga.o sysinit.o
+	echo $(SRCS)
+	$(CC) $(SRCS) -o boot.img
