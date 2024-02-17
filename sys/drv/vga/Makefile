@@ -1,10 +1,10 @@
 CC=cc
 FLAGS=-Wall -c -g -Wextra -ffreestanding -m32 -nostdlib 
-SRCS=$(wildcard *.c)
-INCLUDE=include/ 
-MAIN_INCLUDE=../../include/
-BIN=../../../obj/drv/vga.o
+SRCS=$(wildcard sys/drv/vga/*.c)
+INC=sys/drv/vga/include/ sys/include/
+INC_PARAMS=$(INC:%=-I%)
+BIN=obj/vga.o
 
-all:
-	$(CC) $(FLAGS) -I $(INCLUDE) -I $(MAIN_INCLUDE) $(SRCS) -o $(BIN)
+vga.o:
+	$(CC) $(FLAGS) $(INC_PARAMS) $(SRCS) -o $(BIN)
 	
