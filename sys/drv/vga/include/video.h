@@ -1,10 +1,13 @@
 #ifndef VIDEO_H
 #define VIDEO_H
 
-#define VGA_START	0xB8000
+#include <types.h>
+
 #define SIZE		4000	
 
-void vga_write(char *, char, short);
+s8 *vga_vidmem = (s8 *)0xb8000;
+
+void vga_write(s8 *, s8);
 void vga_clearscreen();
 
 #endif

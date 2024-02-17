@@ -1,12 +1,16 @@
-#define VGA_START   0xB8000
-#define SIZE        4000
+#include <types.h>
+#include <video.h>
 
-void vga_write(char*, char, short) {
+void
+vga_write(s8 *sequence, s8 flags)
+{
+	u32 i = *vga_vidmem;
 
-}
-
-void vga_clearscreen() {
-    for (int i = 0; i <= SIZE; i++) {
-        VGA_START[i] = 0;
-    }
-}
+	while (*sequence != '\0') {
+		vga_vidmem[i] = *sequence;
+		*sequence++;
+		i++;
+		vga_vidmem[i] = flags;
+		i++;
+	}
+} 
