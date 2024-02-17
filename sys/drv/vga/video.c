@@ -14,3 +14,9 @@ vga_write(s8 *sequence, s8 flags)
 		i++;
 	}
 } 
+
+void vga_clearscreen() {
+    for (int i = 0; i <= SIZE; i++) {
+        VGA_START[i] = 0;
+    }
+}
