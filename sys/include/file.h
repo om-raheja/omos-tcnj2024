@@ -1,3 +1,4 @@
+#include <types.h>
 #define FS_ROOT_INODE	1
 #define FS_BSIZE	512
 #define FS_NDIRECT	12
@@ -17,9 +18,9 @@ struct superblock {
 	u32 firstlog;
 	u32 firstinode;
 	u32 firstfreemapblock;
-}
+};
 
 struct dirent {
 	u16	inum;
 	s8	name[FS_DIRSIZ];
-}
+};
