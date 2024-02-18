@@ -10,6 +10,7 @@ strlen(const char *str)
 	return i;
 }
 
+s32
 printf(const char *format, ...)
 {
 	const u32 len = strlen(format);

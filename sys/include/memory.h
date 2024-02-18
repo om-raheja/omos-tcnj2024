@@ -19,12 +19,12 @@
  * so this complicated structure is utilized instead.
  */
 
-#define START		0xb80f1
+#define START		0xb80f0
 #define SIZE		16384
-#define USABLE(m)	m + sizeof(s32) + sizeof(void *)
-#define NEXT(m)		(void *) *m
-#define SIZE(m)		(s32) m[sizeof(void *)]
 
-void *start = 0x0;
+struct allocated {
+	void *ref;
+	s32 size;
+} 
 
 #endif
