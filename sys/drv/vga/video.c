@@ -15,10 +15,10 @@ vga_write(s8 *sequence, s32 size, s8 flags)
 	u32 i = *vga_vidmem;
 
 	while (*sequence != '\0') {
-		vga_vidmem[unused++] = flags;
-		i++;
 		vga_vidmem[i] = *sequence;
 		*sequence++;
+		i++;
+		vga_vidmem[unused++] = flags;
 		i++;
 	}
 } 
