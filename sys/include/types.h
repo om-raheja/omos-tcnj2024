@@ -16,4 +16,9 @@ typedef char			s8;
 typedef unsigned int		size_t;
 typedef int			ssize_t;
 
+typedef unsigned char *va_list;
+#define va_start(list, param)   (list = (((va_list)&param) + sizeof(param)))
+#define va_arg(list, type)  (*(type *)((list += sizeof(type)) - sizeof(type)))
+#define va_end(list)    (list = NULL)
+
 #endif
