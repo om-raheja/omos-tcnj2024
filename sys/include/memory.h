@@ -22,6 +22,14 @@
 #define START		0xb80f0
 #define SIZE		16384
 
+/* 
+ * How memory is mapped
+ */
+#define STACK_START 0x000b8fa0
+#define STACK_END	0x000fffff
+#define PR_START	0x00100000
+#define PHYSMEMTOP	0x0e000000
+
 struct allocated {
 	void *ref;
 	s32 size;
