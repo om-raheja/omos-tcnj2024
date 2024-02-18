@@ -12,7 +12,7 @@ strlen(const char *str)
 }
 
 char*
-itoa(s32 num, char *str, s32 base)
+strtol(s32 num, char *str, s32 base)
 {
 	s32 i = 0;
 
@@ -33,7 +33,7 @@ itoa(s32 num, char *str, s32 base)
 }
 
 char*
-utoa(u32 num, char *str, s32 base)
+strtoul(u32 num, char *str, s32 base)
 {
 	s32 i = 0;
 
@@ -48,6 +48,80 @@ utoa(u32 num, char *str, s32 base)
 	return str;
 }
 
+char*
+strcpy(char *dest, const char *src)
+{
+	u32 i = 0;
+
+	while (src[i] != NULL) {
+		dest[i] = src[i];
+		i++;
+	}
+
+	return dest;
+}
+
+char*
+strncpy(char *dest, const char *src, size_t count)
+{
+	u32 i = 0;
+
+	while (src[i] != NULL && i < count) {
+		dest[i] = src[i];
+		i++;
+	}
+
+	return dest;
+}
+
+char*
+strcat(char *dest, const char *src)
+{
+	u32 i = 0;
+
+	while (dest[i] != NULL) i++;
+
+	while (src[i] != NULL) {
+		dest[i] = src[i];
+		i++;
+	}
+
+	dest[i] = '\0';
+
+	return dest;
+}
+
+char*
+strncat(char *dest, const char *src, size_t count)
+{
+	u32 i = 0;
+
+	while (dest[i] != NULL) i++;
+
+	while (src[i] != NULL && i < count) {
+		dest[i] = src[i];
+		i++;
+	}
+
+	dest[i] = '\0';
+
+	return dest;
+}
+
+s32
+strcmp(const char *lhs, const char *rhs)
+{
+	u32 i = 0;
+
+	while (lhs[i] != NULL && rhs[i] != NULL) {
+		if (lhs[i] != rhs[i]) {
+			return lhs[i] - rhs[i];
+		}
+	}
+
+	return 0;
+}
+
 s32
 printf(const char *format, ...)
 {
@@ -60,22 +134,22 @@ printf(const char *format, ...)
 			if (format[i + 1] == 'd' || format[i + 1] == 'i') {
 				//integer numbers
 				const s32 num = va_arg(list, s32);
-				const char* str = itoa(num, strbuf, 10);
+				const char* str = strtol(num, strbuf, 10);
 				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 'o') {
 				//octal numbers
 				const s32 num = va_arg(list, s32);
-				const char *str = itoa(num, strbuf, 8);
+				const char *str = strtol(num, strbuf, 8);
 				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 'u') {
 				//unsigned integers
 				const u32 num = va_arg(list, u32);
-				const char *str = utoa(num, strbuf, 10);
+				const char *str = strtoul(num, strbuf, 10);
 				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 'x') {
 				//hexadecimal numbers
 				const u32 num = va_arg(list, u32);
-				const char* str = utoa(num, strbuf, 16);
+				const char* str = strtoul(num, strbuf, 16);
 				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 's') {
 				//strings
