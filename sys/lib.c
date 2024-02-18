@@ -9,3 +9,11 @@ strlen(const char *str)
 
 	return i;
 }
+
+printf(const char *format, ...)
+{
+	const u32 len = strlen(format);
+
+	vga_write(format, len, 0x0f);
+	return len;
+}
