@@ -3,3 +3,4 @@ echo "Kernel Build"
 cc $CFLAGS -c sys/lib.c -o $OBJ/lib.o
 cc $CFLAGS -c sys/video.c -o $OBJ/video.o
 cc $CFLAGS -c sys/sysinit.c -o $OBJ/sysinit.o
+cc $CFLAGS -c sys/kbd.c -o $OBJ/kbd.o

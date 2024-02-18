@@ -1,7 +1,6 @@
 #include <types.h>
 #include <extern.h>
 
-
 void
 sysinit(void)
 {
@@ -12,5 +11,5 @@ sysinit(void)
 
 	char thing = waitkey();
 	vga_write(&thing, 1, 0x1F);
-	memory_init();
+	// memory_init();
 }

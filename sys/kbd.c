@@ -11,10 +11,10 @@ inb(u16 port)
     return ret;
 }
 
-char 
+u8
 waitkey(void)
 { 
-	char k;
+	u8 k;
 	while ((k=inb(0x60))<128);
 	while (inb(0x60)>128);
 
