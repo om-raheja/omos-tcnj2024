@@ -45,4 +45,6 @@ sysinit(void)
 "Om Smart.Om Smarter.Om Smart.Om Smarter.Om Smart.Om Smarter.Om Smart.Om Smarter."
 "Om Smart.Om Smarter.Om Smart.Om Smarter.Om Smart.Om Smarter.Om Smart.Om Smarter."
 "bob", 2003, 0x0F);
+	vga_write("indian", 6, 0x07);
+	vga_write("indian", 6, 0x07);
 }

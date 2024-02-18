@@ -20,10 +20,11 @@
  */
 
 #define START		0xb80f1
+#define SIZE		16384
 #define USABLE(m)	m + sizeof(s32) + sizeof(void *)
 #define NEXT(m)		(void *) *m
 #define SIZE(m)		(s32) m[sizeof(void *)]
 
-void *start = 0x0 ;
+void *start = 0x0;
 
 #endif
