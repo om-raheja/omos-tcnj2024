@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+mkdir -p obj/
+
 INCLUDE="-Isys/drv/vga/include -Isys/include"
 CFLAGS="-g -m32 -ffreestanding -Wall -Wextra -pedantic -nostdlib $INCLUDE"
 ASFLAGS="-felf32"
