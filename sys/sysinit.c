@@ -1,4 +1,6 @@
 #include <types.h>
+#include <extern.h>
+
 
 void
 sysinit(void)
@@ -49,4 +51,8 @@ sysinit(void)
 	vga_write("indian", 6, 0x07);
 
 	printf("%s%x", "Omh", 0x2a);
+	vga_write("Starting omOS...", 16, 0x0F);
+
+	s8 *start = (s8 *) 0xb8fa0;
+	start[0] = 'h';
 }
