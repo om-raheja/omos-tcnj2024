@@ -8,6 +8,6 @@
 s8 *vga_vidmem = (s8 *)0xb8000;
 
 void vga_write(s8 *, s8);
-void vga_clearscreen();
+void vga_clearscreen(void);
 
 #endif

@@ -1,4 +1,6 @@
 void
-sysinit() {
-	write("Om Smart.", 0x0F, 10);
+sysinit(void)
+{
+	vga_clearscreen();
+	vga_write("Om Smart.", 0x0F);
 }

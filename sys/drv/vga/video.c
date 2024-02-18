@@ -15,7 +15,9 @@ vga_write(s8 *sequence, s8 flags)
 	}
 } 
 
-void vga_clearscreen() {
+void
+vga_clearscreen(void)
+{
     for (int i = 0; i <= SIZE; i++) {
         vga_vidmem[i] = 0;
     }

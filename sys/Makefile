@@ -1,4 +1,5 @@
 include sys/drv/vga/Makefile
+
 CC=cc
 FLAGS=-Wall -c -g -Wextra -ffreestanding -m32 -nostdlib 
 SRCS=$(wildcard sys/*.c)

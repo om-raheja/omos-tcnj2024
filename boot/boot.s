@@ -1,15 +1,12 @@
 ; only support mb1
-align	equ 1 << 0
-info	equ 1 << 1
-flags	equ align | info
-magic	equ 0x1BADB002
-chksum	equ - (magic + flags)
+
+bits 32
 
 section .multiboot
 	align	4
-			dd magic
-			dd flags
-			dd chksum
+		dd 0x1badb002 
+		dd 0x00
+		dd - (0x1badb002 + 0x00)
 
 global _start
 extern sysinit

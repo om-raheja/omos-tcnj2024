@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+INCLUDE="-Isys/drv/vga/include -Isys/include"
+CFLAGS="-g -m32 -ffreestanding -Wall -Wextra -pedantic -nostdlib $INCLUDE"
+ASFLAGS="-felf32"
+LDFLAGS="-m elf_i386"
+
+cc $CFLAGS -c sys/drv/vga/video.c -o obj/vga.o
+cc $CFLAGS -c sys/sysinit.c -o obj/sysinit.o
+nasm $ASFLAGS boot/boot.s -o obj/boot.o
+ld $LDFLAGS -T boot/link.ld -o omos obj/boot.o obj/vga.o obj/sysinit.o 
