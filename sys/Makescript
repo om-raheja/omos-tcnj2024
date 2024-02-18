@@ -1,0 +1,3 @@
+echo "Kernel Build"
+
+cc $CFLAGS -c sys/sysinit.c -o $OBJ/sysinit.o

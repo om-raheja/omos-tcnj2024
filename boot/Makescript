@@ -1,0 +1,3 @@
+echo "Bootloader Build"
+
+nasm $ASFLAGS boot/boot.s -o $OBJ/boot.o

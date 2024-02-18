@@ -1,3 +1,13 @@
 # omos-tcnj2024
 
-goofy os for x86
+goofy x86 os
+
+## Working
+
+* VGA
+
+## TBD
+
+* MMU
+* Filesystem
+* Process Management

@@ -1,0 +1,3 @@
+echo "Driver Build"
+
+. sys/drv/vga/Makescript
