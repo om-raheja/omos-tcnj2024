@@ -4,6 +4,7 @@
 #include <types.h>
 
 #define VGA_SIZE		4000	
+#define	VGA_TEXT_SIZE	2000
 s32 unused =			0;
 
 s8 *vga_vidmem =		(s8 *)0xb8000;
