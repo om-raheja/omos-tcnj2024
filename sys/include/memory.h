@@ -28,11 +28,14 @@
 #define STACK_START 0x000b8fa0
 #define STACK_END	0x000fffff
 #define PR_START	0x00100000
+#define MALLOC_END	0x00100fff
 #define PHYSMEMTOP	0x0e000000
 
 struct allocated {
 	void *ref;
 	s32 size;
 } 
+
+void memory_init(void);
 
 #endif

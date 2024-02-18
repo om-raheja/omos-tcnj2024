@@ -7,7 +7,8 @@ void
 memory_init(void)
 {
 	u32 esp, ebp;
-	ebp = 0x8B7F0;
+	ebp = STACK_START;
+	esp = STACK_START;
 }
 
 void *malloc(s32 size) {
