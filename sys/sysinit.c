@@ -4,7 +4,8 @@ void
 sysinit(void)
 {
 	vga_clearscreen();
-	for (s16 i = 0; i < 51; i++) {
+
+	for (s16 i = 0; i < 256; i++) {
 		vga_write("Om Smart.", 9, 0x0F);
 		vga_write("Om Smarter.", 11, 0x0F);
 	} 
