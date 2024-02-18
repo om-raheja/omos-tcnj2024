@@ -12,7 +12,7 @@ vga_write(s8 *sequence, s16 size, s8 flags)
 			vga_vidmem[++i] = flags;
 		} 
 
-		unused = 4001;
+		unused = 2001;
 		return;
 	} 
 
@@ -25,10 +25,9 @@ vga_write(s8 *sequence, s16 size, s8 flags)
 		unused = VGA_SIZE - needed_space;
 	} 
 
-	while (*sequence != '\0') {
-		vga_vidmem[unused++] = *sequence;
-		*sequence++;
-		vga_vidmem[unused++] = flags;
+	for (s16 i = 0; i < size; i++) {
+		vga_vidmem[unused * 2] = sequence[i];
+		vga_vidmem[(unused++ * 2) + 1] = flags;
 	}
 } 
 
