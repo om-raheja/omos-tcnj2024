@@ -60,19 +60,23 @@ printf(const char *format, ...)
 			if (format[i + 1] == 'd' || format[i + 1] == 'i') {
 				//integer numbers
 				const s32 num = va_arg(list, s32);
-				vga_write(itoa(num, strbuf, 10), 1, 0x0f);
+				const char* str = itoa(num, strbuf, 10);
+				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 'o') {
 				//octal numbers
 				const s32 num = va_arg(list, s32);
-				vga_write(itoa(num, strbuf, 8), 1, 0x0f);
+				const char *str = itoa(num, strbuf, 8);
+				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 'u') {
 				//unsigned integers
 				const u32 num = va_arg(list, u32);
-				vga_write(utoa(num, strbuf, 10), 1, 0x0f);
+				const char *str = utoa(num, strbuf, 10);
+				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 'x') {
 				//hexadecimal numbers
 				const u32 num = va_arg(list, u32);
-				vga_write(utoa(num, strbuf, 16), 1, 0x0f);
+				const char* str = utoa(num, strbuf, 16);
+				vga_write(str, sizeof(str), 0x0f);
 			} else if (format[i + 1] == 's') {
 				//strings
 				const char *str = va_arg(list, char*);
