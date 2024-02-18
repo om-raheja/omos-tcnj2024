@@ -2,7 +2,7 @@
 
 OBJ="obj"
 INCLUDE="-Isys/include"
-CFLAGS="-g -m32 -ffreestanding -Wall -Wextra -pedantic -nostdlib $INCLUDE"
+CFLAGS="-m32 -ffreestanding -Wall -Wextra -pedantic -nostdlib $INCLUDE"
 ASFLAGS="-felf32"
 LDFLAGS="-m elf_i386"
 

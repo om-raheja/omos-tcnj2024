@@ -1,7 +1,10 @@
-8 ifndef MEMORY_H
+#ifndef MEMORY_H
 #define MEMORY_H
 
 #include <types.h>
+
+#define EXTMEMBOT	0x100000
+#define PHYSMEMTOP	0x0e000000
 
 
 /*
