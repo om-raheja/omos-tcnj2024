@@ -1,3 +1,0 @@
-echo "VGA Driver Build"
-
-cc $CFLAGS -c sys/drv/vga/video.c -o $OBJ/vga.o
