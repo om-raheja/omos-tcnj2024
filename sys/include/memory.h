@@ -22,7 +22,7 @@
 #define START		0xb80f0
 #define SIZE		16384
 
-/* 
+/*
  * How memory is mapped
  */
 #define STACK_START 0x000b8fa0
@@ -34,7 +34,7 @@
 struct allocated {
 	void *ref;
 	s32 size;
-} 
+};
 
 void memory_init(void);
 
